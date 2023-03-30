@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="card-header">
+        <h1>Update a task</h1>
+    </div>
+    <div class="card-body">
+        <form #bookForm="ngForm" (ngSubmit)="updateTask(bookForm.value)">
+            <div class="mb-3">
+                <label for="name" class="form-label">name</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" [(ngModel)]="book.name"
+                    name="name">
+            </div>
+            <div class="mb-3">
+                <label for="isbn" class="form-label">isbn</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" [(ngModel)]="book.isbn"
+                    name="isbn">
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">author</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" [(ngModel)]="book.author"
+                    name="author">
+            </div>
+            <div class="mb-3">
+                <label for="categorie" class="form-label">category</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" [(ngModel)]="book.categorie"
+                    name="categorie">
+            </div>
+            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button>
+        </form>
+    </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header success" >
+          <h5 class="modal-title" id="exampleModalLabel">The Book has been Updated</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group">
+                <li class="list-group-item">Book name : {{response.name}} </li>
+                <li class="list-group-item">Author : {{response.author}} </li>
+                <li class="list-group-item">ISBN : {{response.isbn}} </li>
+                <li class="list-group-item">CATEGORY : {{response.categorie}} </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" [routerLink]="['/home']">Go back To Home</button>
+        </div>
+      </div>
+    </div>
+  </div>

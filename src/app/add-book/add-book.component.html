@@ -1,0 +1,52 @@
+<div class="align-items-center vh-4">
+    <div class="card mx-auto center">
+      <div class="card-header">
+        <h1>Add a Book</h1>
+      </div>
+      <div class="card-body">
+        <form #bookForm="ngForm" (ngSubmit)="addBook(bookForm.value)">
+          <div class="mb-3">
+            <label for="description" class="form-label">name</label>
+            <input type="text" class="form-control" id="name" name="name" ngModel>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">ISBN</label>
+            <input type="text" class="form-control" id="isbn" name="isbn" ngModel>
+          </div>
+          <div class="mb-3">
+            <label for="author" class="form-label">author</label>
+            <input type="text" class="form-control" id="author" name="author" ngModel>
+          </div>
+          <div class="mb-3">
+            <label for="categorie" class="form-label">category</label>
+            <input type="text" class="form-control" id="categorie" name="categorie" ngModel>
+          </div>
+          <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit Book</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header success" >
+          <h5 class="modal-title" id="exampleModalLabel">The Book has been Added</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group">
+                <li class="list-group-item">Book name : {{response.name}} </li>
+                <li class="list-group-item">Author : {{response.author}} </li>
+                <li class="list-group-item">ISBN : {{response.isbn}} </li>
+                <li class="list-group-item">CATEGORY : {{response.categorie}} </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Add other Book</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" [routerLink]="['/home']">Go back To Home</button>
+        </div>
+      </div>
+    </div>
+  </div>
